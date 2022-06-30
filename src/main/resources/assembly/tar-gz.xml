@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>${project.version}</id>
+
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <!-- boot jar -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>boot</outputDirectory>
+            <includes>
+                <include>zookeeper-cli-application.jar</include>
+            </includes>
+        </fileSet>
+        <!-- agent jar -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>agent</outputDirectory>
+            <includes>
+                <include>zookeeper-cli-agent.jar</include>
+            </includes>
+        </fileSet>
+        <!-- document -->
+        <fileSet>
+            <directory>document</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>README.*</include>
+            </includes>
+        </fileSet>
+        <!-- script -->
+        <fileSet>
+            <directory>script</directory>
+            <outputDirectory>bin</outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>755</fileMode>
+        </fileSet>
+        <!-- conf -->
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>conf</outputDirectory>
+            <includes>
+                <include>logback.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources/release</directory>
+            <outputDirectory>conf</outputDirectory>
+            <includes>
+                <include>logback.properties</include>
+            </includes>
+        </fileSet>
+        <!-- README.md -->
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>LICENSE</include>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
