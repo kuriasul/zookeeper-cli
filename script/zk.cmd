@@ -34,7 +34,7 @@ goto error
 
 set ZK_CMD_LINE_ARGS=%*
 
-cd %~dp0
+cd /d %~dp0
 cd ..
 set ZK_HOME=%CD%
 
